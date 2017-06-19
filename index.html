@@ -8,24 +8,29 @@ layout: default
     <div class="row pack">
 
         {% for post in paginator.posts %}   
-            <div class="col-md-4 card">
-                 
-                <div class="panel panel-default">
-                  <div class="panel-body">
-                    <h3 class="panel-title pull-left">{{ post.title | truncate: 25 }}</h3><span class="post-meta pull-right"><small>{{ post.date | date: "%b %-d, %Y" }}</small></span>
-                  </div>
-                  {% if post.img %}
-                  <img width="100%" src="{{site.baseurl}}/images/{{post.img}}" alt="{{post.title}}">
-                  {% else %}
-                  <img width="100%" src="{{site.baseurl}}/images/webjeda-logo-big.jpg" alt="{{site.title}}">
-                  {% endif %}
-                  <div class="panel-body"><small>
-                    {{ post.excerpt | strip_html | strip_newlines | truncate: 160 }}</small>
-                    <a href="{{ post.url | prepend: site.baseurl }}" class="btn btn-primary btn-sm pull-right mt10">Read</a>
-                  </div>
-                </div>
-            </div>
-        
+            <div class="col-sm-6 col-md-3 col-lg-2">
+                 <div class="thumbnail">
+					<a rel="bookmark" href="{{ post.url | prepend: site.baseurl }}">
+						<img class="cover" width="160" height="200" 
+						{% if post.imgurl %}
+						src="{{ post.imgurl }}"
+						{% else %}
+						src="{{site.baseurl}}/images/image-1.png"
+						{% endif %}
+						alt="{{ post.title | truncate: 25 }}" title="{{ post.title | truncate: 25 }}">
+					
+						<div class="item-rating">
+							<div class="star-rating" title="0 out of 5 Stars">
+							{% if post.rating %}
+							<span style="width: {{ post.rating }}%;"></span>
+							{% endif %}
+							</div>
+						</div>
+					
+					</a>
+					<span class="book-title">{{ post.title | truncate: 25 }}</span>
+				</div>
+			</div>
           {% endfor %}
 
     </div> 

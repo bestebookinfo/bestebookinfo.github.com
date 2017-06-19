@@ -39,9 +39,7 @@ img {
     padding: 20px 0;
 }
 .navbar-brand {
-    font-weight: 900;
-    font-size: 1.85em;
-    padding: 10px;
+    font-size: 1.25em; 
     @media screen and (max-width: $on-palm) {
         font-size: 1.5em;
     }
@@ -105,12 +103,13 @@ footer {
 
 .pack {
 
-
+/*
     display: -webkit-inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
     flex-wrap: wrap;
     -webkit-flex-wrap: wrap;
+    */
 }
 
 .card {
