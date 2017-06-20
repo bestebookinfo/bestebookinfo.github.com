@@ -5,8 +5,16 @@ date:   2016-06-13 10:51:47 +0530
 categories: jekyll update
 img: image-1.png
 imgurl: https://images-na.ssl-images-amazon.com/images/I/51EJRGm1VeL._SL200_.jpg
-categories: [one, two]
+amazonid: 1119365570
+author: Jeanette McMurtry
+press: For Dummies
+pubdate: 2017-06-06
+pagesize: 408
 rating: 60
+tag-author: donna-serdula
+tag-press: for-dummies
+tags: donna-serdula for-dummies
+categories: [one, two]
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 

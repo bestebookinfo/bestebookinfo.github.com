@@ -37,6 +37,8 @@ analytics: UA-55157705-2
 # Comments
 #disqus-shortname: bestebookinfo
 
+#amazon tag
+amazontag: bestebookinfo-20
 
 # Sass style
 sass:

@@ -1,41 +1,70 @@
----
+--- 
 layout: default
 ---
 <div class="row">
-<div class="col-md-8">
+  <div class="col-md-8">
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-          <header class="post-header">
-            <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-            <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
-                 
-          </header>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+        <p class="post-meta">
+          <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{%
+          endif %}</p>
 
-          <div class="post-content" itemprop="articleBody">
-            {{ content }}
-          </div>
+      </header>
+      <div class="row book-top">
+        <div class="col-md-3">
+          <img class="img-responsive" width="160" height="200" itemprop="image" alt="{{ page.title }}" title="{{ page.title }}" src="{{ page.imgurl }}">
+        </div>
+        <div class="col-md-9">
+          <a href="https://www.amazon.com/dp/{{ page.amazonid }}/?tag={{ site.amazontag }}#customerReviews" target="_blank">
+            <div class="item-rating info" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+              <div class="star-rating">
+                {% if page.rating %}
+                <span class="rating" style="width: {{ page.rating }}%;">
+                {% endif %}
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <div class="info"><i>by <a href="{{site.baseurl}}/tags/#{{ page.tag-author }}-ref" rel="tag">{{ page.author }}</a></i></div>
+          <div class="info"><i><a href="{{site.baseurl}}/tags/#{{ page.tag-press }}-ref" rel="tag">{{ page.press }}</a></i></div>
+          <div class="info"><i>{{ page.pubdate }}</i></div>
+          <div class="info"><i>{{ page.pagesize }} pages</i></div>
+        </div>
+      </div>
+
+      <div class="panel panel-warning text-center">
+        <div class="panel-body">
+          <a class="btn btn-info" target="_blank" rel="nofollow" role="button" href="http://www.amazon.com/gp/reader/{{ page.amazonid }}/?tag={{ site.amazontag }}"><i class="fa fa-leanpub"></i> Online Preview</a>
+          <a class="btn btn-info col-md-offset-1" target="_blank" rel="nofollow" role="button" href="https://www.amazon.com/dp/{{ page.amazonid }}/?tag={{ site.amazontag }}#customerReviews"><i class="fa fa-comments"></i> Reviews</a>
+          <a class="btn btn-info col-md-offset-1" role="button" href="#download"><i class="fa fa-download"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="post-content" itemprop="articleBody">
+        {{ content }}
+      </div>
 
     </article>
     <div class="row">
-        {% if site.disqus-shortname %}
-         {% include disqus.html %}
-        {% endif %}
+      {% if site.disqus-shortname %} {% include disqus.html %} {% endif %}
     </div>
-    
-    
+
+
     <div class="row">
-            <ul class="pager">
-             {% if page.next.url %}
-                    <li><a class="next" href="{{page.next.url | prepend: site.baseurl}}">&laquo; {{page.next.title}}</a></li>
-              {% endif %}
-              {% if page.previous.url %}
-                <li><a class="previous" href="{{page.previous.url | prepend: site.baseurl}}">{{page.previous.title}} &raquo;</a></li>
-              {% endif %}
-            </ul>
+      <ul class="pager">
+        {% if page.next.url %}
+        <li><a class="next" href="{{page.next.url | prepend: site.baseurl}}">&laquo; {{page.next.title}}</a></li>
+        {% endif %} {% if page.previous.url %}
+        <li><a class="previous" href="{{page.previous.url | prepend: site.baseurl}}">{{page.previous.title}} &raquo;</a></li>
+        {% endif %}
+      </ul>
     </div>
-</div>
+  </div>
 
 
-{% include sidebar.html %}
+  {% include sidebar.html %}
 
 </div>
