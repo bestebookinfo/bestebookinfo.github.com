@@ -9,7 +9,7 @@ press: Apress
 pubdate: 2017-07-22
 pagesize: 131
 rating: 0
-download-link: http://sh.st/st/7a45e8ed9f73a6a10e9a22b2d8783c44/http://www108.zippyshare.com/v/CZwf2RFm/file.html
+download-link: http://www108.zippyshare.com/v/CZwf2RFm/file.html
 download-format: True PDF
 download-size: 5.3
 
