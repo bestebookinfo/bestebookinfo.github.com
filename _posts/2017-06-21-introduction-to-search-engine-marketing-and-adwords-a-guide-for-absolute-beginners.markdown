@@ -1,6 +1,6 @@
 ---
 layout: post
-date:   2017-07-22 03:23:00 +1200
+date:   2017-06-21 03:23:00 +1200
 title: "Introduction to Search Engine Marketing and AdWords: A Guide for Absolute Beginners"
 imgurl: https://images-na.ssl-images-amazon.com/images/I/41b9b9OPimL._SL200_.jpg
 amazonid: 1484228472

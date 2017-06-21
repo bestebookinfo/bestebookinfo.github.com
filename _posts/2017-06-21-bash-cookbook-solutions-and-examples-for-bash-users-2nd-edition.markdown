@@ -1,6 +1,6 @@
 ---
 layout: post
-date:   2017-09-25 08:00:00 +1200
+date:   2017-06-21 08:00:00 +1200
 title: "bash Cookbook: Solutions and Examples for bash Users, 2nd Edition"
 imgurl: https://images-na.ssl-images-amazon.com/images/I/51EJRGm1VeL._SL200_.jpg
 amazonid: 1491975334

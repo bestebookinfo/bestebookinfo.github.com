@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Introduction to Google Analytics: A Guide for Absolute Beginners"
-date:   2017-07-22 02:23:00 +1200
+date:   2017-06-21 02:23:00 +1200
 imgurl: https://images-na.ssl-images-amazon.com/images/I/41kVrt4GgtL._SL200_.jpg
 amazonid: 1484228286
 author: Todd Kelsey
