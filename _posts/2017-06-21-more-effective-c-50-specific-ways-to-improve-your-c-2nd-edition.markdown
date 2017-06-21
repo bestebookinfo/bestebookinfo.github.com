@@ -13,8 +13,8 @@ download-link: http://www77.zippyshare.com/v/oGHYurDw/file.html
 download-format: True PDF
 download-size: 1.3
 tag-author: bill-wagner
-tag-press: addison-wesley-professional
-tags: addison-wesley-professional bill-wagner C# .NET
+tag-press: Addison-Wesley-Professional
+tags: Addison-Wesley-Professional bill-wagner C# .NET
 ---
 
 In More Effective C#, Second Edition, world-renowned .NET expert Bill Wagner identifies and illuminates 50 intermediate-to-advanced techniques for writing exceptionally robust and well-performing C# 7.0 code. Reflecting the growing sophistication of the C# language and its development community, Wagner presents powerful new solutions to problems you’re likely to encounter every day.

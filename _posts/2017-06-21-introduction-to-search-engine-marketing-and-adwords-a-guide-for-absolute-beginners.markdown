@@ -13,8 +13,8 @@ download-link: http://www108.zippyshare.com/v/CZwf2RFm/file.html
 download-format: True PDF
 download-size: 5.3
 
-tag-press: apress
-tags: apress google
+tag-press: Apress
+tags: Apress google
 ---
 
 Use Google's AdWords to create your ads. Each chapter goes beyond the tool itself, discussing helpful resources and important issues to keep in mind.  If you are completely new to search engine marketing and AdWords and you want to learn the basics, this guide will introduce you to the content quickly. 

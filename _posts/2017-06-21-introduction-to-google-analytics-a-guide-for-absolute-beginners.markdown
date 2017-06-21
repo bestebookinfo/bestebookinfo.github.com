@@ -9,8 +9,8 @@ press: Apress
 pubdate: 2017-07-22
 pagesize: 141
 rating: 0
-tag-press: apress
-tags: apress google
+tag-press: Apress
+tags: Apress google
 download-link: http://www91.zippyshare.com/v/wgYdBt1N/file.html
 download-format: True PDF
 download-size: 5.2

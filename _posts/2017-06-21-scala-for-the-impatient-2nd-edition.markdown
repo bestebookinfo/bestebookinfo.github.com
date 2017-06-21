@@ -13,8 +13,8 @@ download-link: http://www28.zippyshare.com/v/JE7JAKuX/file.html
 download-format: True PDF, AZW3
 download-size: 23.3
 
-tag-press: addison-wesley-professional
-tags: addison-wesley-professional Scala
+tag-press: Addison-Wesley-Professional
+tags: Addison-Wesley-Professional Scala
 ---
 
 Interest in the Scala programming language continues to grow for many reasons. Scala embraces the functional programming style without abandoning the object-oriented paradigm, and it allows you to write programs more concisely than in Java. Because Scala runs on the JVM, it can access any Java library and is interoperable with familiar Java frameworks. Scala also makes it easier to leverage the full power of concurrency.
