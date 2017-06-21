@@ -8,8 +8,11 @@ layout: default
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
         <p class="post-meta">
-          <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{%
-          endif %}</p>
+          <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
+          {% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+          {% endif %} {% if page.press %} • <span itemprop="author" itemscope itemtype="http://schema.org/Press"><span itemprop="press">{{ page.press }}</span></span>
+          {% endif %}
+        </p>
 
       </header>
       <div class="row book-top">
@@ -28,8 +31,22 @@ layout: default
             </div>
           </a>
 
-          <div class="info"><i>by <a href="{{site.baseurl}}/tags/#{{ page.tag-author }}-ref" rel="tag">{{ page.author }}</a></i></div>
-          <div class="info"><i><a href="{{site.baseurl}}/tags/#{{ page.tag-press }}-ref" rel="tag">{{ page.press }}</a></i></div>
+          <div class="info"><i>by 
+            {% if page.tag-author %}
+              <a href="{{site.baseurl}}/tags/#{{ page.tag-author }}-ref" rel="tag">{{ page.author }}</a>
+            {% else %}
+              {{ page.author }}
+            {% endif %}
+            </i>
+          </div>
+          <div class="info"><i>
+            {% if page.tag-press %}
+              <a href="{{site.baseurl}}/tags/#{{ page.tag-press }}-ref" rel="tag">{{ page.press }}</a>
+            {% else %}
+              {{ page.press }}
+            {% endif %}
+            </i>
+          </div>
           <div class="info"><i>{{ page.pubdate }}</i></div>
           <div class="info"><i>{{ page.pagesize }} pages</i></div>
         </div>
@@ -47,6 +64,45 @@ layout: default
         {{ content }}
       </div>
 
+      {% if page.download-link %}
+      <div class="panel panel-primary" id="download">
+        <div class="panel-heading">
+          <h2 class="panel-title">
+            Book Download
+            <a href="/faq/" class="pull-right"><i class="fa fa-question-circle"></i> How to Download?</a>
+
+          </h2>
+        </div>
+        <div class="panel-body">
+          <table class="table table-bordered table-condensed table-hover">
+            <thead>
+              <tr>
+                <th>Free Download Link</th>
+                <th>Format</th>
+                <th>Size (MB)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="{{ site.stadlink }}/{{ page.download-link }}" title="{{ page.title }}"
+                    rel="nofollow" target="_blank"><i class="fa fa-cloud-download"></i> Click to download</a></td>
+                <td>True PDF</td>
+                <td>56.9</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="panel panel-warning text-center">
+        <div class="panel-body">
+          <a class="btn btn-info" target="_blank" rel="nofollow" role="button" href="http://www.amazon.com/gp/reader/{{ page.amazonid }}/?tag={{ site.amazontag }}"><i class="fa fa-leanpub"></i> Online Preview</a>
+          <a class="btn btn-info col-md-offset-1" target="_blank" rel="nofollow" role="button" href="https://www.amazon.com/dp/{{ page.amazonid }}/?tag={{ site.amazontag }}#customerReviews"><i class="fa fa-comments"></i> Reviews</a>
+          <a class="btn btn-info col-md-offset-1" role="button" href="https://www.amazon.com/dp/{{ page.amazonid }}/?tag={{ site.amazontag }}"><i class="fa fa-shopping-cart"></i> Get Print Book</a>
+        </div>
+      </div>
+
     </article>
     <div class="row">
       {% if site.disqus-shortname %} {% include disqus.html %} {% endif %}
@@ -56,9 +112,9 @@ layout: default
     <div class="row">
       <ul class="pager">
         {% if page.next.url %}
-        <li><a class="next" href="{{page.next.url | prepend: site.baseurl}}">&laquo; {{page.next.title}}</a></li>
+        <li><a class="next" title="{{ page.next.title }}" href="{{page.next.url | prepend: site.baseurl}}">&laquo; {{page.next.title | truncate: 25}}</a></li>
         {% endif %} {% if page.previous.url %}
-        <li><a class="previous" href="{{page.previous.url | prepend: site.baseurl}}">{{page.previous.title}} &raquo;</a></li>
+        <li><a class="previous" title="{{ page.previous.title }}" href="{{page.previous.url | prepend: site.baseurl}}">{{page.previous.title | truncate: 25}} &raquo;</a></li>
         {% endif %}
       </ul>
     </div>
