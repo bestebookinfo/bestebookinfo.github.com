@@ -1,6 +1,6 @@
 ---
 layout: post
-date:   2017-06-21 08:23:00 +1200
+date:   2017-08-28 08:23:00 +1200
 title: "More Effective C#: 50 Specific Ways to Improve Your C#, 2nd Edition"
 imgurl: https://images-na.ssl-images-amazon.com/images/I/51A4bhyh1RL._SL200_.jpg
 amazonid: 0672337886

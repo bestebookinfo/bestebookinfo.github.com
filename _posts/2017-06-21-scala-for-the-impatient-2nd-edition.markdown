@@ -1,6 +1,6 @@
 ---
 layout: post
-date:   2017-06-21 09:00:00 +1200
+date:   2016-12-25 09:00:00 +1200
 title: "Scala for the Impatient, 2nd Edition"
 imgurl: https://images-na.ssl-images-amazon.com/images/I/51CZL3jCdGL._SL200_.jpg
 amazonid: 0134540565
