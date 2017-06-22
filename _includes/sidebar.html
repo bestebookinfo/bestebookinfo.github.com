@@ -8,7 +8,7 @@
                 {% for post in site.related_posts limit:5 %}
 
                       <li>
-                      <p><a title="{{ post.title }}" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | truncate: 25 }}</a><small>&nbsp;&nbsp;{{ post.date | date_to_string }}</small></p>
+                      <p><a title="{{ post.title }}" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | truncate: 35 }}</a><small>&nbsp;&nbsp;{{ post.date | date_to_string }}</small></p>
                       </li>
 
                 {% endfor %}
