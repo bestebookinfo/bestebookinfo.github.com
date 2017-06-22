@@ -3,15 +3,46 @@
             
         {% if site.related_posts.size > 0 %}
         <div class="mt10 recent">
-            <h2>Recent articles</h2>        
+            <h3>Recommended Books For You</h3>        
              <ul>
-                {% for post in site.related_posts limit:5 %}
+            {% assign maxRelated = 4 %}
+            {% assign minCommonTags =  1 %}
+            {% assign maxRelatedCounter = 0 %}
+            
+            {% for post in site.posts %}
 
-                      <li>
-                      <p><a title="{{ post.title }}" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | truncate: 35 }}</a><small>&nbsp;&nbsp;{{ post.date | date_to_string }}</small></p>
-                      </li>
+                  {% assign sameTagCount = 0 %}
+                  {% assign commonTags = '' %}
 
-                {% endfor %}
+                  {% for tag in post.tags %}
+                        {% if post.url != page.url %}
+                              {% if page.tags contains tag %}
+                                    {% assign sameTagCount = sameTagCount | plus: 1 %}
+                                    {% capture tagmarkup %} 
+                                          <span class="label label-default">{{ tag }}</span> 
+                                    {% endcapture %}
+                                    {% assign commonTags = commonTags | append: tagmarkup %}
+                              {% endif %}
+                        {% endif %}
+                  {% endfor %}
+
+                  {% if sameTagCount >= minCommonTags %}
+                  <li>
+                        <p>
+                        <a title="{{ post.title }}" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | truncate: 35 }}</a>
+                        <small>&nbsp;&nbsp;{{ post.date | date_to_string }}</small>
+                        </p>
+                  </li>
+
+                        {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+                        {% if maxRelatedCounter >= maxRelated %}
+                              {% break %}
+                        {% endif %}
+                  {% endif %}
+
+            {% endfor %}
+
+                
               </ul>
         </div>
         {% endif %}
