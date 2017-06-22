@@ -10,7 +10,7 @@ press: Packt Publishing
 pubdate: 2017-05-29
 pagesize: 1496
 rating: 0
-download-link: http://www28.zippyshare.com/v/TT6OBfCz/file.html
+download-link: http://www1.zippyshare.com/v/ZQC0qJF2/file.html
 download-format: AZW3
 download-size: 17.1
 

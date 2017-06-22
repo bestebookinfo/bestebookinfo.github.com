@@ -15,7 +15,7 @@ download-format: AZW3
 download-size: 4.6
 
 tag-press: packtpub
-tags: Packtpub Go Design-Patterns
+tags: Packtpub Go Design-Patterns Language
 ---
 
 ***An insightful guide to learning the Go programming language***
