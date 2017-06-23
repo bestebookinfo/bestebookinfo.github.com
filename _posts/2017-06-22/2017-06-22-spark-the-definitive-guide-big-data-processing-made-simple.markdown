@@ -15,7 +15,7 @@ download-format: PDF (Early Release)
 download-size: 3.6
 
 tag-press: O'Reilly
-tags: O'Reilly Spark RDD Big-Data Deep-Learning Machine-Learning Spark-SQL Streaming Scala
+tags: O'Reilly Spark RDD Big-Data Deep-Learning Machine-Learning Spark-SQL Streaming Scala Early-Release
 ---
 
 Learn how to use, deploy, and maintain Apache Spark with this comprehensive guide, written by the creators of this open-source cluster-computing framework. With an emphasis on improvements and new features in Spark 2.0, authors Bill Chambers and Matei Zaharia break down Spark topics into distinct sections, each with unique goals.

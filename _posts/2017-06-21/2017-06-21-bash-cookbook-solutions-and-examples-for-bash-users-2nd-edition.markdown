@@ -14,7 +14,7 @@ download-format: PDF (Early Release)
 download-size: 2.3
 
 tag-press: O'Reilly
-tags: O'Reilly bash Shell Unix
+tags: O'Reilly bash Shell Unix Early-Release
 ---
 
 Shell scripting is a way to harness and customize the power of any Unix system, and an essential skill for Unix users, system administrators, and even professional Mac OS X developers. But beneath this simple promise lies a treacherous ocean of variations in Unix commands and standards. This thoroughly revised edition of bash Cookbook teaches shell scripting the way Unix masters practice the craft.

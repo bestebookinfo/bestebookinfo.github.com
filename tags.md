@@ -7,13 +7,13 @@ permalink: /tags/
 {% include JB/setup %}
 
 <ul class="tag_box inline" >
-  {% assign tags_list = site.tags %}  
+  {% assign tags_list = site.tags | sort %}  
   {% include JB/tags_list %}
 </ul>
 
-
-{% for tag in site.tags %} 
-  <h2 id="{{ tag[0] }}-ref">{{ tag[0] }}</h2>
+{% assign tags_list = site.tags | sort %}  
+{% for tag in tags_list %} 
+  <h2 id="{{ tag[0] }}-ref">{{ tag[0] | replace: '-', ' '}}</h2>
   <ul>
     {% assign pages_list = tag[1] %}  
     {% include JB/pages_list %}

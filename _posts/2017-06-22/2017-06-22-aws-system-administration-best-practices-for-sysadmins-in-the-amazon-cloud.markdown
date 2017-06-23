@@ -15,7 +15,7 @@ download-format: PDF (5th Early Release)
 download-size: 5.8
 
 tag-press: O'Reilly
-tags: O'Reilly AWS Amazon
+tags: O'Reilly AWS Amazon Early-Release
 ---
 Building and deploying infrastructure with Amazon Web Services is simply not the same as dealing with static servers. With tools that let you automatically replace instances and scale up and down in response to demand, it’s actually more like programming than traditional system administration—and ideal for a DevOps environment.
 
