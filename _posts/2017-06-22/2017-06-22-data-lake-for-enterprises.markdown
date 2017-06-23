@@ -26,6 +26,7 @@ tags: Packtpub Data-Lake Enterprise Lambda Big-Data Java Kafka Hadoop Flume Spar
 - A highly practical guide to implementing enterprise data lakes with lots of examples and real-world use-cases
 
 ###Who This Book Is For
+
 Java developers and architects who would like to implement a data lake for their enterprise will find this book useful. If you want to get hands-on experience with the Lambda Architecture and big data technologies by implementing a practical solution using these technologies, this book will also help you.
 
 ### What You Will Learn
