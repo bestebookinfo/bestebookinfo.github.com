@@ -189,3 +189,15 @@ html,body {
 .panel:hover {
     box-shadow: none;
 }
+.pager li {
+    display: inline;
+    margin: 0 2em;
+}
+div.search-bar > div {
+    width: 300px;
+}
+.gsc-control-cse {
+    background: transparent !important;
+    border: 0 !important;
+    padding: 1em 1em 0 1em !important;
+}

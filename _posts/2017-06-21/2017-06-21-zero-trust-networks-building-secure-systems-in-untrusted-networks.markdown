@@ -14,8 +14,8 @@ download-link: http://www10.zippyshare.com/v/4tSqoenZ/file.html
 download-format: AZW3
 download-size: 2.2
 
-tag-press: oreilly-media
-tags: Oreilly Network
+tag-press: O'Reilly
+tags: O'Reilly Network
 ---
 
 The perimeter defenses guarding your network perhaps are not as secure as you think. Hosts behind the firewall have no defenses of their own, so when a host in the "trusted" zone is breached, access to your data center is not far behind. That’s an all-too-familiar scenario today. With this practical book, you’ll learn the principles behind zero trust architecture, along with details necessary to implement it.
