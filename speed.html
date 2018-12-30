@@ -1,272 +1,90 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-	<!--[if lte IE 8]>
-		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
-	<![endif]-->
-	<!--[if gt IE 8]><!-->
-		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
-	<!--<![endif]-->
-	<style type="text/css">
-		.pure-g { text-align: center;}
-	</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body >
-	<div class="pure-g">
-		<div class="pure-u-1">
-			<div id="s-chart" style="width: 100%;height:400px;margin: 0 auto;"></div>
-		</div>
-	</div>
-    <div class="pure-g">
-		<div class="pure-u-1">
-			<div id="local-ip" style="width: 100%;margin: 0 auto;color:#df2d4f"></div>
-		</div>
-	</div>
-	<div class="pure-g">
-		<div class="pure-u-1">
-			<div id="global-ip" style="width: 100%;margin: 0 auto;color:#8156a7"></div>
-		</div>
-	</div>
-	<div class="pure-g">
-		<div class="pure-u-1">
-			<div id="global-ip" style="width: 100%;margin: 0 auto;">
-				<button class="pure-button pure-button-primary" onclick="doTest();">点击开始测速</button>
-			</div>		
-		</div>
-	</div>
 
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts.min.js"></script>
-<script>
-    var myChart = echarts.init(document.getElementById('s-chart'));
-	
-	const testFiles = [
-		'https://www.bestebook.info/25000000.txt'
-	]
+<body>
+	<div style="margin: 30px auto;width:30px">
+		<div class="lds-css ng-scope">
+			<div style="width:100%;height:100%" class="lds-rolling">
+				<div></div>
+			</div>
+			<style type="text/css">
+				@keyframes lds-rolling {
+					0% {
+						-webkit-transform: translate(-50%, -50%) rotate(0deg);
+						transform: translate(-50%, -50%) rotate(0deg);
+					}
 
-	option = {
-		title: {
-			text: '',
-			subtext: ''
-		},
-		tooltip: {
-			trigger: 'axis',
-			axisPointer: {
-				type: 'cross',
-				label: {
-					backgroundColor: '#283b56'
+					100% {
+						-webkit-transform: translate(-50%, -50%) rotate(360deg);
+						transform: translate(-50%, -50%) rotate(360deg);
+					}
 				}
-			}
-		},
-		legend: {
-			data:['平均速度']
-		},
-		toolbox: {
-			show: false,
-			feature: {
-				dataView: {readOnly: false},
-				restore: {},
-				saveAsImage: {}
-			}
-		},
-		dataZoom: {
-			show: false,
-			start: 0,
-			end: 100
-		},
-		xAxis: [
-			{
-				type: 'category',
-				boundaryGap: true,
-				data: (function (){
-					let now = new Date();
-					let res = [];
-					let len = 10;
-					while (len--) {
-						res.unshift(now.toLocaleTimeString().replace(/^\D*/,''));
-						now = new Date(now - 2000);
+
+				@-webkit-keyframes lds-rolling {
+					0% {
+						-webkit-transform: translate(-50%, -50%) rotate(0deg);
+						transform: translate(-50%, -50%) rotate(0deg);
 					}
-					return res;
-				})()
-			}
-			,{
-				type: 'category',
-				boundaryGap: true,
-				data: (function (){
-					let res = [];
-					let len = 10;
-					while (len--) {
-						res.push(10 - len - 1);
+
+					100% {
+						-webkit-transform: translate(-50%, -50%) rotate(360deg);
+						transform: translate(-50%, -50%) rotate(360deg);
 					}
-					return res;
-				})()
-			}
-		],
-		yAxis: [
-			{
-				type: 'value',
-				scale: true,
-				name: '速度',
-				//max: 30,
-				min: 0,
-				boundaryGap: [0.2, 0.2]
-			}
-		],
-		series: [
-			{
-				name:'网速（K/S）',
-				type:'bar',
-				xAxisIndex: 1,
-				yAxisIndex: 0,
-				data:(function (){
-					let res = [];
-					let len = 10;
-					while (len--) {
-						res.push(0);
-					}
-					return res;
-				})()
-			}
-		]
-	};
-	myChart.setOption(option);
+				}
 
-	var xCount = 11;
-	var start = null;
-	var startLen = 10;
-	var lastLoadedBytes = 0;
-	var allStart = null;
-	var totalLoadBytes = 0;
-	var totalTimeElipsed = 0;
-	var downloadIndex = 0;
-	var isDownloading = false;
+				.lds-rolling {
+					position: relative;
+				}
 
-	function updateProgress (oEvent) {
-		if (!oEvent) return;
-		
-	  //if (oEvent.lengthComputable) {
-		axisData = (new Date()).toLocaleTimeString().replace(/^\D*/,'');
-		
-		let speedShow = '速度测评';
-		
-		let delta = oEvent.loaded - lastLoadedBytes;
-		lastLoadedBytes = oEvent.loaded;
-		totalLoadBytes += delta;
+				.lds-rolling div,
+				.lds-rolling div:after {
+					position: absolute;
+					width: 150px;
+					height: 150px;
+					border: 10px solid #b5ccf1;
+					border-top-color: transparent;
+					border-radius: 50%;
+				}
 
-		let bytePS = oEvent.loaded / ((new Date() - start) / 1000);
-		let kbPS = bytePS / 1024;
-		let mbPS = kbPS / 1024;
-		if (mbPS > 1) {
-			speedShow = (fix(mbPS) + ' M/S')
-		} else if (kbPS > 1) {
-			speedShow = (fix(kbPS) + ' K/S')
-		} else {
-			speedShow = (fix(bytePS) + ' B/S')
-		}
-		
-		option.title.subtext = speedShow;
-		myChart.setOption(option);
+				.lds-rolling div {
+					-webkit-animation: lds-rolling 1s linear infinite;
+					animation: lds-rolling 1s linear infinite;
+					top: 100px;
+					left: 100px;
+				}
 
-		let data0 = option.series[0].data;
-		if (startLen-- > 0 || data0.length > 100) {
-			 data0.shift()
-			 option.xAxis[0].data.shift();
-			 option.xAxis[1].data.shift();
-		}
+				.lds-rolling div:after {
+					-webkit-transform: rotate(90deg);
+					transform: rotate(90deg);
+				}
 
-		option.xAxis[0].data.push(axisData);
-		option.xAxis[1].data.push(xCount++);
-		data0.push(fix(kbPS));
-		//console.log(oEvent.loaded / ((new Date() - start) / 1000) )
-		// ...
-	  //} 
-	  /*
-	  else {
-		 console.log(oEvent)
-		// Unable to compute progress information since the total size is unknown
-		console.log('Unable to compute progress information since the total size is unknown')
-	  }
-	  */
-	}
+				.lds-rolling {
+					width: 35px !important;
+					height: 35px !important;
+					-webkit-transform: translate(-17.5px, -17.5px) scale(0.175) translate(17.5px, 17.5px);
+					transform: translate(-17.5px, -17.5px) scale(0.175) translate(17.5px, 17.5px);
+				}
+			</style>
+		</div>
 
-	function transferComplete(evt) {
-		let speedShow = '速度测评'
-		console.log("complete = " + (new Date() - allStart))
-		totalTimeElipsed +=  (new Date() - allStart);
-		
-		if (totalLoadBytes) {
-			let bytePS = totalLoadBytes / ( totalTimeElipsed / 1000);
-			let kbPS = bytePS / 1024;
-			let mbPS = kbPS / 1024;
-			if (mbPS > 1) {
-				speedShow = (fix(mbPS) + ' M/S')
-			} else if (kbPS > 1) {
-				speedShow = (fix(kbPS) + ' K/S')
-			} else {
-				speedShow = (fix(bytePS) + ' B/S')
-			}
-			option.title.text = '加载完成，平均速度为 ' + speedShow;
-			myChart.setOption(option);
-		}
-		isDownloading = false;
-		doDownload();
-	}
+	</div>
+</body>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+<script>
 
-	function transferFailed(evt) {
-		doDownload();
-		//console.log(evt)
-	}
-
-	function transferCanceled(evt) {
-		//console.log(evt)
-	}
-
-	function fix(num) {
-		return Number(num).toFixed()
-	}
-
-	function makeid() {
-	  var text = "";
-	  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-	  for (var i = 0; i < 6; i++)
-		text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-	  return text;
-	}
-
-	function doDownload() {
-		if (downloadIndex >= testFiles.length ) return;
-		isDownloading = true;
-		let xhr = new XMLHttpRequest();
-		xhr.open('GET', testFiles[downloadIndex++] + '?&v=' + makeid(), true);
-		xhr.responseType = 'blob';
-		xhr.addEventListener("progress", updateProgress);
-		xhr.addEventListener("load", transferComplete, false);
-		xhr.addEventListener("error", transferFailed, false);
-		xhr.addEventListener("abort", transferCanceled, false);
-
-		start = new Date();
-		if (!allStart) allStart = new Date();
-		xhr.send()
-	}
-	
-	//get the IP addresses associated with an account
-	function getIPs(callback){
+	function getIPs(callback) {
 		var ip_dups = {};
-
-		//compatibility for firefox and chrome
 		var RTCPeerConnection = window.RTCPeerConnection
 			|| window.mozRTCPeerConnection
 			|| window.webkitRTCPeerConnection;
 
-		//bypass naive webrtc blocking
 		if (!RTCPeerConnection) {
 			var iframe = document.createElement('iframe');
-			//invalidate content script
 			iframe.sandbox = 'allow-same-origin';
 			iframe.style.display = 'none';
 			document.body.appendChild(iframe);
@@ -279,77 +97,69 @@
 				|| window.webkitRTCPeerConnection;
 		}
 
-		//minimal requirements for data connection
 		var mediaConstraints = {
-			optional: [{RtpDataChannels: true}]
+			optional: [{ RtpDataChannels: true }]
 		};
 
-		//firefox already has a default stun server in about:config
 		//    media.peerconnection.default_iceservers =
 		//    [{"url": "stun:stun.services.mozilla.com"}]
 		var servers = undefined;
 
-		//add same stun server for chrome
-		if(window.webkitRTCPeerConnection)
-			servers = {iceServers: [{urls: "stun:stun.services.mozilla.com"}]};
+		if (window.webkitRTCPeerConnection)
+			servers = { iceServers: [{ urls: "stun:stun.services.mozilla.com" }] };
 
-		//construct a new RTCPeerConnection
 		var pc = new RTCPeerConnection(servers, mediaConstraints);
 
-		//listen for candidate events
-		pc.onicecandidate = function(ice){
-
-			//skip non-candidate events
-			if(ice.candidate){
-
-				//match just the IP address
+		pc.onicecandidate = function (ice) {
+			if (ice.candidate) {
 				var ip_regex = /([0-9]{1,3}(\.[0-9]{1,3}){3})/
 				var ip_addr = ip_regex.exec(ice.candidate.candidate)[1];
-
-				//remove duplicates
-				if(ip_dups[ip_addr] === undefined)
+				if (ip_dups[ip_addr] === undefined)
 					callback(ip_addr);
 
 				ip_dups[ip_addr] = true;
 			}
 		};
-
-		//create a bogus data channel
 		pc.createDataChannel("");
+		pc.createOffer(function (result) {
+			pc.setLocalDescription(result, function () { }, function () { });
 
-		//create an offer sdp
-		pc.createOffer(function(result){
-
-			//trigger the stun server request
-			pc.setLocalDescription(result, function(){}, function(){});
-
-		}, function(){});
+		}, function () { });
 	}
 
-	function getGlobalIp() {
+	function getGlobalIp(callback) {
 		let xhr = new XMLHttpRequest();
 		xhr.open('GET', 'http://ip-api.com/json', true);
 		xhr.responseType = 'json';
-		xhr.onreadystatechange = function() {
+		xhr.onreadystatechange = function () {
 			if (xhr.readyState == 4) {
-				//console.log(xhr.response)	
-				document.getElementById('global-ip').innerText = '外网IP：' + xhr.response.query
+				if (callback) callback(xhr.response.query)
 			}
 		}
 		xhr.send()
 	}
 
-	//Test: Print the IP addresses into the console
-	getIPs(function(ip){document.getElementById('local-ip').innerText = '内网IP：' + ip});
-	getGlobalIp();
+	function getUrlParameter(name) {
+		name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+		var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+		var results = regex.exec(location.search);
+		return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+	};
 
-	function doTest() {
-		if (isDownloading) return;
-		doDownload();
+	function ready() {
+		console.log(window.__wxjs_environment === 'miniprogram') // true
 	}
-	
-	//doDownload();
+	if (!window.WeixinJSBridge || !WeixinJSBridge.invoke) {
+		document.addEventListener('WeixinJSBridgeReady', ready, false)
+	} else {
+		ready()
+	}
 
-	
+	getIPs(function (ip) {
+		wx.miniProgram.navigateTo({ url: getUrlParameter('navTo') + ip })
+	});
+	getGlobalIp(function (ip) {
+	});
 </script>
+
 </html>
